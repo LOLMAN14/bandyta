@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Jednorenki Bandyta</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let ile = 0;
+        let ileWygranych = 0;
+        let iletokens = 50;
+
+        function start() {
+            document.getElementById("POLE1").innerHTML = "<img src='1.jpg'>";
+            document.getElementById("POLE2").innerHTML = "<img src='2.jpg'>";
+            document.getElementById("POLE3").innerHTML = "<img src='3.jpg'>";
+        }
+
+        function spin() {
+            let x1 = Math.random();
+            x1 = Math.floor(x1 * 3 + 1);
+            let x2 = Math.random();
+            x2 = Math.floor(x2 * 3 + 1);
+            let x3 = Math.random();
+            x3 = Math.floor(x3 * 3 + 1);
+            znak1 = "<img src=\"" + x1 + ".jpg\">";
+            znak2 = "<img src=\"" + x2 + ".jpg\">";
+            znak3 = "<img src=\"" + x3 + ".jpg\">";
+            document.getElementById("POLE1").innerHTML = znak1;
+            document.getElementById("POLE2").innerHTML = znak2;
+            document.getElementById("POLE3").innerHTML = znak3;
+            ile++;
+            iletokens -= 1;
+            if ((x1 == x2) && (x1 == x3)) {
+                document.getElementById("wynik").innerHTML = " <h2>Wygrałes</h2>";
+                ileWygranych++;
+                iletokens += 50;
+
+            } else {
+                document.getElementById("wynik").innerHTML = "Graj dalej"
+            }
+            document.getElementById("ileG").innerHTML = "<h3> Gier: " + ile + " <br> Wygranych: " + ileWygranych + "<br>tokens: " + iletokens + "</h3>;"
+        }
+    </script>
+</head>
+
+<body onload="start()">
+    <div id="ramka">
+        <h1>Jednorenki Bandyta</h1>
+        <div id="POLE1"></div>
+        <div id="POLE2"></div>
+        <div id="POLE3"></div>
+
+        <div id="Przycisk"><Button onclick="spin()">ZAGRAJ!!!</Button></div>
+        <br><br>
+        <div id="wynik"></div>
+        <br><br>
+        <div id="ileG"></div>
+
+    </div>
+
+
+</body></html> 
